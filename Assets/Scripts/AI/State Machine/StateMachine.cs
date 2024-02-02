@@ -20,6 +20,8 @@ public enum SM_State
 {
     Idle,
     Flying,
+    Engage,
+    Collected
 }
 
 
@@ -132,4 +134,11 @@ public class StateMachine
     public StateMachineData GetStateMachineData() => sm_stateData;
 
     private StateMachine GetStateMachine() => this;
+
+
+    protected void RandomNegation(ref float value)
+    {
+        int randInt = Random.Range(0, 100);
+        value = (randInt % 2 == 0) ? value : -value;
+    }
 }
