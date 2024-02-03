@@ -185,7 +185,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.6
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 766436099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.63, y: 2.72, z: -0}
+  m_LocalPosition: {x: -3.63, y: 4.54, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -398,6 +398,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1209166138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.458234
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.311
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.518
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_Name
+      value: DragonTest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7beeb832c78c2a4890a8832ce64fc12, type: 3}
 --- !u!1 &2078847655
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +932,7 @@ SkinnedMeshRenderer:
   m_Mesh: {fileID: 2212009239438826721, guid: 07e28563e4c85144aa67da39265cd1ea, type: 3}
   m_Bones: []
   m_BlendShapeWeights:
-  - 80.1
+  - 83.6
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: -0.000000033527613, y: -0.19030303, z: -0.0734424}
@@ -2153,3 +2221,4 @@ SceneRoots:
   - {fileID: 766436102}
   - {fileID: 966914063}
   - {fileID: 543450653558163797}
+  - {fileID: 1209166138}
