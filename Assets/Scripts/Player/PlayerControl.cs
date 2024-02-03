@@ -17,14 +17,18 @@ public class PlayerControl : MonoBehaviour
     public Transform cannon;
     public Transform spawnPoint;
 
+    [SerializeField, Range(0.0f, 1.5f)]float timerRequired = 1.0f;
+    [SerializeField] bool shot = false;
+    [SerializeField] float pressedTime = 0.0f;
 
+    [SerializeField] private SkinnedMeshRenderer ballistaMesh;
 
     private bool shoot;
 
     public bool Shoot { get { return shoot; } }
 
 
-[Header("Extra")]
+    [Header("Extra")]
     [SerializeField] private bool lockMouse = false;
 
     private void Start()
@@ -42,9 +46,10 @@ public class PlayerControl : MonoBehaviour
     private void Update()
     {
         Movement();
+        //Fire();
 
-
-        Fire();
+        NewFire();
+        BallistaVisuals();
     }
 
 
@@ -62,31 +67,80 @@ public class PlayerControl : MonoBehaviour
 
         float rotAmount = -input * deltaAngle;
 
-        Quaternion currentRot = ballista.rotation;
+        Quaternion currentRot = ballista.localRotation;
+
 
         float currentAngle = (currentRot.eulerAngles.x > 180) ? currentRot.eulerAngles.x - 360 : currentRot.eulerAngles.x;
 
         float newRot = Mathf.Clamp(currentAngle + rotAmount, minRot, maxRot);
 
 
-        Quaternion newQuat = Quaternion.Euler(newRot, 0, 0);
-        ballista.transform.rotation = Quaternion.Slerp(currentRot, newQuat, Time.deltaTime * speed);
+        Quaternion newQuat = Quaternion.Euler(newRot, 0.0f, 0.0f);
+        ballista.localRotation = Quaternion.Slerp(currentRot, newQuat, Time.deltaTime * speed);
     }
 
     private void Fire()
     {
-       shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
-        
-        
-        if(shoot)
-        {
-            Transform newCannon = Instantiate(cannon, spawnPoint.position, transform.rotation);
 
-            if (newCannon.TryGetComponent<CannonBehaviour>(out CannonBehaviour behaviour))
-            {
-                behaviour.ForceDirection(ballista.transform.up);
-            }
+        Transform newCannon = Instantiate(cannon, spawnPoint.position, ballista.rotation);
+
+        if (newCannon.TryGetComponent<CannonBehaviour>(out CannonBehaviour behaviour))
+        {
+
+            behaviour.ForceDirection(ballista.transform.up);
+
+            Vector3 pos1 = ballista.transform.position + (Quaternion.Euler(0, 5.0f, 0) * ballista.transform.up);
+            Vector3 pos2 = ballista.transform.position + (Quaternion.Euler(0, -5.0f, 0) * ballista.transform.up);
         }
+        //shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
+        
+        
+        //if(shoot)
+        //{
+        //    Transform newCannon = Instantiate(cannon, spawnPoint.position, ballista.rotation);
+
+        //    if (newCannon.TryGetComponent<CannonBehaviour>(out CannonBehaviour behaviour))
+        //    {
+        //        behaviour.ForceDirection(ballista.transform.up);
+        //    }
+        //}
+    }
+
+
+    private void NewFire()
+    {
+
+                //pressedTime += Time.deltaTime;
+        if (!shot)
+        {
+            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+                pressedTime += Time.deltaTime;
+            else
+                pressedTime -= Time.deltaTime;
+
+            if (pressedTime > timerRequired)
+            {
+                Fire();
+                shot = true;
+            }
+            //shot = true;
+
+        }
+        else
+        {
+            pressedTime = 0.0f;
+            shot = false;
+        }
+
+
+        pressedTime = Mathf.Clamp(pressedTime, 0.0f, timerRequired);
+    }
+
+
+    private void BallistaVisuals()
+    {
+        float ratio = (pressedTime / timerRequired) * 100.0f;
+        ballistaMesh.SetBlendShapeWeight(0, ratio);
     }
 
 
