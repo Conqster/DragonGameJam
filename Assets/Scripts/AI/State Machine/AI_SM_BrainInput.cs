@@ -25,7 +25,9 @@ public class AI_SM_BrainInput
 
     [Header("General")]
     [SerializeField] public DragonAI dragonAI;
-    [SerializeField] public LayerMask dragonLM;
+    [SerializeField] public bool canMove = false;
+    [SerializeField] public LayerMask goldLM;
+    [SerializeField] public LayerMask wallLM;
     [SerializeField, Range(0.0f, 100.0f)] public float maxDistForRaycast = 15.0f;
     [SerializeField] public Transform dragonTransform;
     [SerializeField] public Transform playMidArea;

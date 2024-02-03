@@ -29,7 +29,8 @@ public class SM_Idle : StateMachine
     protected override void Update()
     {
         if (sm_duration > m_IdleDuration)
-            TriggerExit(new SM_Flying(sm_input, sm_output));
+            if(sm_input.canMove)
+                TriggerExit(new SM_Flying(sm_input, sm_output));
 
 
         base.Update();

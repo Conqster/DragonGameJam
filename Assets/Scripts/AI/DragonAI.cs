@@ -21,6 +21,11 @@ public class DragonAI : MonoBehaviour
 
     private void Start()
     {
+
+        if (m_BrainInput.playMidArea == null)
+            m_BrainInput.playMidArea = GameObject.FindGameObjectWithTag("MidPoint").transform;
+
+
         m_DragonSM = new SM_Idle(m_BrainInput, m_BrainOutput);
     }
 
@@ -29,6 +34,10 @@ public class DragonAI : MonoBehaviour
     {
         m_DragonSM = m_DragonSM.Process();
         m_Dragon_SM_Data = m_DragonSM.GetStateMachineData();
+
+
+        if (!m_BrainInput.canMove)
+            MoveInPlace();
     }
 
 
@@ -44,6 +53,20 @@ public class DragonAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("KillZone"))
             Destroy(gameObject);
+
+        if(!m_BrainInput.canMove)
+            if(other.gameObject.CompareTag("PlayZone"))
+            {
+                transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+                m_BrainInput.canMove = true;    
+            }
+    }
+
+
+
+    private void MoveInPlace()
+    {
+        transform.position += transform.forward * m_BrainInput.flySpeed * Time.deltaTime;
     }
 
 }

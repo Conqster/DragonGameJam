@@ -26,7 +26,7 @@ public class SM_Flying : StateMachine
         //m_FlyDuration = sm_input.flyingDuration;
 
         m_FlyDuration4Engage = Random.Range(sm_input.minEngageTime, sm_input.maxEngageTime);
-        Debug.Log("Engage in: " + m_FlyDuration4Engage);
+        //Debug.Log("Engage in: " + m_FlyDuration4Engage);
 
         m_Speed = sm_input.flySpeed;
 
@@ -58,7 +58,7 @@ public class SM_Flying : StateMachine
 
 
         //SineWave(ref y_Osci);
-        Vector3 move = sm_input.dragonTransform.right;
+        Vector3 move = sm_input.dragonTransform.forward;
 
         sm_input.dragonTransform.position += move * m_Speed * Time.deltaTime;
 
@@ -92,27 +92,32 @@ public class SM_Flying : StateMachine
         RaycastHit hit;
         targets = new PickUpTargets();
 
-        if(Physics.Raycast(sm_input.dragonTransform.position, -sm_input.dragonTransform.up, out hit,sm_input.maxDistForRaycast, sm_input.dragonLM))
+        if(Physics.Raycast(sm_input.dragonTransform.position, -sm_input.dragonTransform.up, out hit,sm_input.maxDistForRaycast, sm_input.goldLM))
         {
             float halfDistance = hit.distance * 0.5f;
             targets.primaryTarget = hit.point;
             float xDirection = halfDistance;
 
+
             RandomNegation(ref xDirection);
 
             targets.secondaryTarget = sm_input.dragonTransform.position - new Vector3(xDirection, halfDistance, 0.0f);
 
-            Debug.DrawLine(sm_input.dragonTransform.position, hit.point, Color.blue, 10.0f);
-            Debug.DrawLine(sm_input.dragonTransform.position, targets.secondaryTarget, Color.cyan, 10.0f);
+            Debug.DrawLine(sm_input.dragonTransform.position, hit.point, Color.blue, 3.0f);
+            Debug.DrawLine(sm_input.dragonTransform.position, targets.secondaryTarget, Color.cyan, 3.0f);
 
             Vector3 vecToSec = targets.secondaryTarget - sm_input.dragonTransform.position;
             float length = vecToSec.magnitude;
             vecToSec.Normalize();
 
-            if (Physics.Raycast(sm_input.dragonTransform.position, vecToSec, length))
+            if (Physics.Raycast(sm_input.dragonTransform.position, vecToSec, out hit, length, sm_input.wallLM))
             {
-                targets.secondaryTarget = sm_input.dragonTransform.position - new Vector3(-xDirection, halfDistance, 0.0f);
-                Debug.DrawLine(sm_input.dragonTransform.position, targets.secondaryTarget, Color.magenta, 10.0f);
+  
+                if(!hit.collider.CompareTag("Dragon") && !hit.collider.CompareTag("PlayZone"))
+                {
+                    targets.secondaryTarget = sm_input.dragonTransform.position - new Vector3(-xDirection, halfDistance, 0.0f);
+                    Debug.DrawLine(sm_input.dragonTransform.position, targets.secondaryTarget, Color.magenta, 2.0f);
+                }
             }
 
 
