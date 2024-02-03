@@ -17,7 +17,14 @@ public class PlayerControl : MonoBehaviour
     public Transform cannon;
     public Transform spawnPoint;
 
-    [Header("Extra")]
+
+
+    private bool shoot;
+
+    public bool Shoot { get { return shoot; } }
+
+
+[Header("Extra")]
     [SerializeField] private bool lockMouse = false;
 
     private void Start()
@@ -57,21 +64,23 @@ public class PlayerControl : MonoBehaviour
 
         Quaternion currentRot = ballista.rotation;
 
-        float currentAngle = (currentRot.eulerAngles.z > 180) ? currentRot.eulerAngles.z - 360 : currentRot.eulerAngles.z;
+        float currentAngle = (currentRot.eulerAngles.x > 180) ? currentRot.eulerAngles.x - 360 : currentRot.eulerAngles.x;
 
         float newRot = Mathf.Clamp(currentAngle + rotAmount, minRot, maxRot);
 
 
-        Quaternion newQuat = Quaternion.Euler(0, 0, newRot);
+        Quaternion newQuat = Quaternion.Euler(newRot, 0, 0);
         ballista.transform.rotation = Quaternion.Slerp(currentRot, newQuat, Time.deltaTime * speed);
     }
 
     private void Fire()
     {
-        bool shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
+       shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
+        
+        
         if(shoot)
         {
-            Transform newCannon = Instantiate(cannon, spawnPoint.position, Quaternion.identity);
+            Transform newCannon = Instantiate(cannon, spawnPoint.position, transform.rotation);
 
             if (newCannon.TryGetComponent<CannonBehaviour>(out CannonBehaviour behaviour))
             {
