@@ -40,9 +40,17 @@ public class AI_SM_BrainInput
 }
 
 
-
+[System.Serializable]
 public class AI_SM_BrainOutput
 {
     [SerializeField] public bool idle = false;
     [SerializeField] public bool flying = false;
+
+    [SerializeField] public bool goingLeft = false;
+    [SerializeField] public bool goingRight = false;
+    [SerializeField] public bool die = false;
+    [SerializeField] public bool dive = false;
+    [SerializeField] public bool liftOff = false;
+
+    [SerializeField] public Vector3 currentEngageVector = Vector3.zero;
 }

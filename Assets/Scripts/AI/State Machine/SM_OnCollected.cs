@@ -18,6 +18,7 @@ public class SM_OnCollected : StateMachine
 
     protected override void Enter()
     {
+        sm_output.liftOff = true;
         m_Speed = sm_input.onCollectedSpeed;
 
 
@@ -30,6 +31,12 @@ public class SM_OnCollected : StateMachine
         sm_input.dragonTransform.position += move * m_Speed * Time.deltaTime;
 
         base.Update();
+    }
+
+    protected override void Exit()
+    {
+        sm_output.liftOff = false;
+        base.Exit();
     }
 
 }

@@ -38,7 +38,7 @@ public class SM_Flying : StateMachine
         if(sm_input.playMidArea.TryGetComponent<PlayAreaMidCheck>(out PlayAreaMidCheck playArea))
             m_PlayArea = playArea;
 
-
+        sm_output.flying = true;
         base.Enter();
     }
 
@@ -47,6 +47,10 @@ public class SM_Flying : StateMachine
     {
         //if (sm_duration > m_FlyDuration)
         //    TriggerExit(new SM_Idle(sm_input, sm_output));
+
+        sm_output.goingLeft = (m_Speed < 0) ? true : false;
+        sm_output.goingRight = (m_Speed > 0) ? true : false;
+
 
         if (sm_duration > m_FlyDuration4Engage)
         {
@@ -83,7 +87,12 @@ public class SM_Flying : StateMachine
         base.Update();
     }
 
-    protected override void Exit() { base.Exit(); }
+    protected override void Exit() 
+    { 
+        sm_output.flying = false;
+        sm_output.goingLeft = sm_output.goingRight = false; 
+        base.Exit(); 
+    }
 
 
 

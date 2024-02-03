@@ -836,11 +836,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4380654490984745352, guid: 4031dc2ec40f3eb40b954890ccd99eff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4572949083396942716, guid: 4031dc2ec40f3eb40b954890ccd99eff,
         type: 3}
       propertyPath: m_Name
@@ -849,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 4572949083396942716, guid: 4031dc2ec40f3eb40b954890ccd99eff,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6539508313884585060, guid: 4031dc2ec40f3eb40b954890ccd99eff,
         type: 3}
@@ -900,11 +895,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8153013099787987732, guid: 4031dc2ec40f3eb40b954890ccd99eff,
-        type: 3}
-      propertyPath: m_HealthSystem.health
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

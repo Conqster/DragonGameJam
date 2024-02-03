@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1815741262677866423}
   - component: {fileID: 31743245076635167}
   - component: {fileID: 2416865610425923262}
-  - component: {fileID: 3859414187514149641}
   m_Layer: 0
   m_Name: Coins
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4380654490984745352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.16734692, y: -0.4699998, z: -0.54093313}
+  m_LocalPosition: {x: -0.791, y: -0.762, z: -0.101}
   m_LocalScale: {x: 0.40816325, y: 1, z: 0.4081632}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3859414187514149641
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4380654490984745352}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4572949083396942716
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2.45}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5144900619558267051}
   - {fileID: 1815741262677866423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,7 +135,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4572949083396942716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -225,12 +204,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainInput:
-    idleDuration: 2
+    idleDuration: 4.28
     flySpeed: 5
     maxEngageTime: 7.08
     minEngageTime: 1.71
     engageSpeed: 10
-    onCollectedSpeed: 5.11
+    onCollectedSpeed: 1.4
     dragonAI: {fileID: 8153013099787987732}
     canMove: 0
     goldLM:
@@ -246,6 +225,14 @@ MonoBehaviour:
     amp: 1.0045
     freq: 1
     phase: 0
+  m_BrainOutput:
+    idle: 0
+    flying: 0
+    goingLeft: 0
+    goingRight: 0
+    die: 0
+    dive: 0
+    liftOff: 0
   m_Dragon_SM_Data:
     stateName: 
     stateEvent: 0
@@ -253,3 +240,87 @@ MonoBehaviour:
     state: 0
   m_HealthSystem:
     health: 10
+--- !u!1001 &4678363322901876544
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6539508313884585060}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99835974
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.408437
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.454
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f7beeb832c78c2a4890a8832ce64fc12,
+        type: 3}
+      propertyPath: m_Name
+      value: DragonTest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7beeb832c78c2a4890a8832ce64fc12, type: 3}
+--- !u!4 &5144900619558267051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f7beeb832c78c2a4890a8832ce64fc12,
+    type: 3}
+  m_PrefabInstance: {fileID: 4678363322901876544}
+  m_PrefabAsset: {fileID: 0}

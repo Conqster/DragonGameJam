@@ -40,6 +40,7 @@ public class SM_Engage : StateMachine
 
     protected override void Enter()
     {
+        sm_output.dive = true;
         m_Speed = sm_input.engageSpeed;
 
         vecToTarget = m_Targets.secondaryTarget - sm_input.dragonTransform.position;
@@ -74,6 +75,7 @@ public class SM_Engage : StateMachine
                     Debug.DrawRay(sm_input.dragonTransform.position, vecToTarget, Color.red, 5.0f);
 
                     m_CurrentTarget = CurrentTarget.primary;
+                    
                 }
 
                 break;
@@ -96,11 +98,23 @@ public class SM_Engage : StateMachine
                 break;
         }
 
+        sm_output.currentEngageVector = vecToTarget;
+
+        sm_output.goingLeft = (vecToTarget.x < 0) ? true : false;
+        sm_output.goingRight = (vecToTarget.x > 0) ? true : false;
 
         base.Update();
     }
 
-    protected override void Exit() { base.Exit(); }
+    protected override void Exit() 
+    { 
+        sm_output.dive = false;
+
+        //WARNING: Comment below to take direction over to next state.
+        //sm_output.goingLeft = false;
+        //sm_output.goingRight = false;
+        base.Exit(); 
+    }
 
 
 }

@@ -91,10 +91,12 @@ public class PlayerControl : MonoBehaviour
 
             Vector3 pos1 = ballista.transform.position + (Quaternion.Euler(0, 5.0f, 0) * ballista.transform.up);
             Vector3 pos2 = ballista.transform.position + (Quaternion.Euler(0, -5.0f, 0) * ballista.transform.up);
+
+           
         }
         //shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
-        
-        
+
+
         //if(shoot)
         //{
         //    Transform newCannon = Instantiate(cannon, spawnPoint.position, ballista.rotation);

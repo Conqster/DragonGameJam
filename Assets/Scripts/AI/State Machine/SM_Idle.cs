@@ -18,6 +18,7 @@ public class SM_Idle : StateMachine
 
     protected override void Enter()
     {
+        sm_output.idle = true;
         m_IdleDuration = sm_input.idleDuration;
 
 
@@ -36,5 +37,9 @@ public class SM_Idle : StateMachine
         base.Update();
     }
 
-    protected override void Exit() { base.Exit(); }
+    protected override void Exit() 
+    {
+        sm_output.idle = false;
+        base.Exit(); 
+    }
 }

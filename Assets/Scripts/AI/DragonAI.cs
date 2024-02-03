@@ -69,4 +69,7 @@ public class DragonAI : MonoBehaviour
         transform.position += transform.forward * m_BrainInput.flySpeed * Time.deltaTime;
     }
 
+
+    public AI_SM_BrainOutput BrainOutput { get { return m_BrainOutput; } }
+    public AI_SM_BrainOutput GetBrainOutput() { return m_BrainOutput; }
 }

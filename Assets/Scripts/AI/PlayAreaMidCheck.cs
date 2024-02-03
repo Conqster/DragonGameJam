@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayAreaMidCheck : MonoBehaviour
 {
 
+    private DragonAI dragonAI;
+
     [Header("Debugger")]
     [SerializeField, Range(0.0f, 10.0f)] private float radius = 10.0f;
 
