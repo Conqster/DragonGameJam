@@ -48,6 +48,8 @@ public class StateMachine
     protected AI_SM_BrainInput sm_input;
     protected AI_SM_BrainOutput sm_output;
 
+
+
     public StateMachine(AI_SM_BrainInput input, AI_SM_BrainOutput output)
     {
         sm_name = "Base State";
@@ -75,7 +77,7 @@ public class StateMachine
                 Update();
                 break;
             case SM_Event.Exit:
-                Debug.Log("Prepare to exit");
+                //Debug.Log("Prepare to exit");
                 Exit();
                 return sm_transitTo;
         }
@@ -101,7 +103,10 @@ public class StateMachine
     {
         sm_duration += Time.deltaTime;
 
-
+        if(sm_state == SM_State.Collected)
+            sm_input.coinsObject.gameObject.SetActive(true);
+        else
+            sm_input.coinsObject.gameObject.SetActive(false);
 
 
         if (sm_transitionTriggered)

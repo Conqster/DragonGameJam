@@ -13,7 +13,10 @@ public class DragonAI : MonoBehaviour
     [SerializeField] private AI_SM_BrainOutput m_BrainOutput;
     [SerializeField] private StateMachineData m_Dragon_SM_Data;
 
+    [Header("Behaviour")]
+    [SerializeField] private HealthSystem m_HealthSystem;
 
+    public HealthSystem HealthSystem { get { return m_HealthSystem; }}
 
 
     private void Start()
@@ -30,6 +33,17 @@ public class DragonAI : MonoBehaviour
 
 
 
+    private void LateUpdate()
+    {
+        if (m_HealthSystem.Health <= 0)
+            Destroy(gameObject);
+    }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("KillZone"))
+            Destroy(gameObject);
+    }
 
 }
