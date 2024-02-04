@@ -103,10 +103,10 @@ public class StateMachine
     {
         sm_duration += Time.deltaTime;
 
-        if(sm_state == SM_State.Collected)
-            sm_input.coinsObject.gameObject.SetActive(true);
-        else
-            sm_input.coinsObject.gameObject.SetActive(false);
+        //if(sm_state == SM_State.Collected)
+        //    sm_input.goldObject.gameObject.SetActive(true);
+        //else
+        //    sm_input.goldObject.gameObject.SetActive(false);
 
 
         if (sm_transitionTriggered)

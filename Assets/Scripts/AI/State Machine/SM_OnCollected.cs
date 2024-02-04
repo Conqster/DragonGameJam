@@ -20,6 +20,10 @@ public class SM_OnCollected : StateMachine
     {
         sm_output.liftOff = true;
         m_Speed = sm_input.onCollectedSpeed;
+        sm_input.goldObject.gameObject.SetActive(true);
+
+        DragonGameManager managerInstance = DragonGameManager.instance;
+        managerInstance.PickGold();
 
 
         base.Enter();
@@ -36,6 +40,7 @@ public class SM_OnCollected : StateMachine
     protected override void Exit()
     {
         sm_output.liftOff = false;
+        sm_input.goldObject.gameObject.SetActive(false);
         base.Exit();
     }
 

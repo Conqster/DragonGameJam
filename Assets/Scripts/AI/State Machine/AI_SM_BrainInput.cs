@@ -31,7 +31,7 @@ public class AI_SM_BrainInput
     [SerializeField, Range(0.0f, 100.0f)] public float maxDistForRaycast = 15.0f;
     [SerializeField] public Transform dragonTransform;
     [SerializeField] public Transform playMidArea;
-    [SerializeField] public Transform coinsObject;
+    [SerializeField] public Transform goldObject;
 
     [Header("Sine Wave")]
     [SerializeField, Range(0.0f, 15.0f)] public float amp = 1.0f;

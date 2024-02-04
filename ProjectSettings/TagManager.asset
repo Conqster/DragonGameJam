@@ -9,6 +9,7 @@ TagManager:
   - PlayZone
   - MidPoint
   - Wall
+  - GoldPile
   layers:
   - Default
   - TransparentFX

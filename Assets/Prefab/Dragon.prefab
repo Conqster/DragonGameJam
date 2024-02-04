@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 31743245076635167}
   - component: {fileID: 2416865610425923262}
   m_Layer: 0
-  m_Name: Coins
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
     maxDistForRaycast: 20
     dragonTransform: {fileID: 6539508313884585060}
     playMidArea: {fileID: 0}
-    coinsObject: {fileID: 1815741262677866423}
+    goldObject: {fileID: 1815741262677866423}
     amp: 1.0045
     freq: 1
     phase: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
     die: 0
     dive: 0
     liftOff: 0
+    currentEngageVector: {x: 0, y: 0, z: 0}
   m_Dragon_SM_Data:
     stateName: 
     stateEvent: 0
@@ -240,6 +241,9 @@ MonoBehaviour:
     state: 0
   m_HealthSystem:
     health: 10
+  m_GoldPrefab: {fileID: 7036951979327345219, guid: 3f1ad28f2e01780469e2c03db3ac5a4e,
+    type: 3}
+  m_GoldSpawnPoint: {fileID: 1815741262677866423}
 --- !u!1001 &4678363322901876544
 PrefabInstance:
   m_ObjectHideFlags: 0

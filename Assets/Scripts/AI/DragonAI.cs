@@ -16,6 +16,9 @@ public class DragonAI : MonoBehaviour
     [Header("Behaviour")]
     [SerializeField] private HealthSystem m_HealthSystem;
 
+    [SerializeField] private Transform m_GoldPrefab;
+    [SerializeField] private Transform m_GoldSpawnPoint;
+
     public HealthSystem HealthSystem { get { return m_HealthSystem; }}
 
 
@@ -45,7 +48,15 @@ public class DragonAI : MonoBehaviour
     private void LateUpdate()
     {
         if (m_HealthSystem.Health <= 0)
+        {
+            DragonGameManager managerInstance = DragonGameManager.instance;
+            managerInstance.DragonADied();
+
+            if(m_Dragon_SM_Data.state == SM_State.Collected)
+                Instantiate(m_GoldPrefab, m_GoldSpawnPoint.position, Quaternion.identity); 
+
             Destroy(gameObject);
+        }
     }
 
 
