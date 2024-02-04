@@ -5,6 +5,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameState
+{
+    Menu,
+    Playing,
+    Pause,
+    GameOver
+}
+
+
 public class DragonGameManager : MonoBehaviour
 {
     public static DragonGameManager instance;
