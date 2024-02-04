@@ -42,18 +42,21 @@ public class DragonGameManager : MonoBehaviour
 
     public void PickGold()
     {
+        FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.PickupCoin, transform.position, 1f);
         m_currentGoldLeft--;
         UpdateGoldLeft();
     }
 
     public void DragonADied()
     {
+        FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.DragonDeath, transform.position, 1f);
         m_dragonKilled++;
         UpdateDragonKilled();   
     }
 
     public void GoldReturned()
     {
+        FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.GoldReturn, transform.position, 0.6f);
         m_currentGoldLeft++;
         UpdateGoldLeft();
     }

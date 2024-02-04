@@ -38,7 +38,11 @@ public class CannonBehaviour : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Dragon"))
             if(other.TryGetComponent<DragonAI>(out DragonAI dragon))
+            {
+                FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.DragonHit, transform.position, 0.8f);
                 dragon.HealthSystem.DealDamage(damage);
+            }
+               
 
 
         //Invoke("SelfDestruct", 1.5f);

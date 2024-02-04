@@ -124,6 +124,7 @@ public class SM_Flying : StateMachine
   
                 if(!hit.collider.CompareTag("Dragon") && !hit.collider.CompareTag("PlayZone"))
                 {
+                    
                     targets.secondaryTarget = sm_input.dragonTransform.position - new Vector3(-xDirection, halfDistance, 0.0f);
                     Debug.DrawLine(sm_input.dragonTransform.position, targets.secondaryTarget, Color.magenta, 2.0f);
                 }

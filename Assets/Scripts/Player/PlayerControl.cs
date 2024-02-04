@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
     [Header("Extra")]
     [SerializeField] private bool lockMouse = false;
 
+    public bool beingPulled = false;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -50,6 +52,17 @@ public class PlayerControl : MonoBehaviour
 
         NewFire();
         BallistaVisuals();
+
+        //testing
+        //if (Input.GetKeyDown(KeyCode.Space) && pressedTime <= 0f || Input.GetMouseButtonDown(0))
+        //{
+        //    FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.BowPull, transform.position, 0.4f);
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.BowPull, transform.position, 0.4f);
+        }
     }
 
 
@@ -88,7 +101,7 @@ public class PlayerControl : MonoBehaviour
         {
 
             behaviour.ForceDirection(ballista.transform.up);
-
+            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.ArrowShot, transform.position, 1f);
             Vector3 pos1 = ballista.transform.position + (Quaternion.Euler(0, 5.0f, 0) * ballista.transform.up);
             Vector3 pos2 = ballista.transform.position + (Quaternion.Euler(0, -5.0f, 0) * ballista.transform.up);
 
@@ -116,7 +129,11 @@ public class PlayerControl : MonoBehaviour
         if (!shot)
         {
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+            {
                 pressedTime += Time.deltaTime;
+              
+            }
+           
             else
                 pressedTime -= Time.deltaTime;
 
