@@ -28,6 +28,8 @@ public class DragonGameManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject deathPanel;
 
+    [SerializeField] private GameState m_GameState;
+
 
     public int CurrentGoldLeft {  get { return m_currentGoldLeft;} }
     public int MaxGold { get { return m_maxGold; } }

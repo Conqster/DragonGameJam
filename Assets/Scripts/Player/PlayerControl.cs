@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour
 
     private bool shoot;
 
+
     public bool Shoot { get { return shoot; } }
 
 
@@ -128,10 +129,12 @@ public class PlayerControl : MonoBehaviour
                 //pressedTime += Time.deltaTime;
         if (!shot)
         {
+
+
+
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
             {
                 pressedTime += Time.deltaTime;
-              
             }
            
             else
