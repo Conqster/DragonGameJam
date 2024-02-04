@@ -37,8 +37,6 @@ public class GoldPileBehaviour : MonoBehaviour
     }
 
 
-
-
     private void OnDestroy()
     {
         DragonGameManager managerInstance = DragonGameManager.instance;

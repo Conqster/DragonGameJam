@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         //Time.timeScale = 0.2f;
     }
@@ -69,7 +69,7 @@ public class PlayerControl : MonoBehaviour
 
     private void LateUpdate()
     {
-        CheckCursorBehaviour();
+        //CheckCursorBehaviour();
     }
 
 

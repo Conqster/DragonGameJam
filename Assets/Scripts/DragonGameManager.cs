@@ -61,17 +61,71 @@ public class DragonGameManager : MonoBehaviour
     }
 
 
+
+    private void Update()
+    {
+        
+
+        switch(m_GameState)
+        {
+            case GameState.Menu:
+                deathPanel.SetActive(false);
+                mainMenuPanel.SetActive(true);
+                m_DragonKilledUI.gameObject.SetActive(false);
+                m_GoldLeftUI.gameObject.SetActive(false);
+                Time.timeScale = 0.0f;
+                break;
+            case GameState.Playing:
+                Time.timeScale = 1.0f;
+                Cursor.lockState = CursorLockMode.Locked;
+                PlayingBehaviour();
+                deathPanel.SetActive(false);
+                mainMenuPanel.SetActive(false);
+                m_DragonKilledUI.gameObject.SetActive(true);
+                m_GoldLeftUI.gameObject.SetActive(true);
+                break;
+            case GameState.Pause:
+                Cursor.lockState = CursorLockMode.None;
+                PauseBehaviour();
+                deathPanel.SetActive(false);
+                mainMenuPanel.SetActive(false);
+                m_DragonKilledUI.gameObject.SetActive(true);
+                m_GoldLeftUI.gameObject.SetActive(true);
+                Time.timeScale = 0.0f;
+                break;
+            case GameState.GameOver:
+                Cursor.lockState = CursorLockMode.None;
+                deathPanel.SetActive(true);
+                mainMenuPanel.SetActive(false);
+                m_DragonKilledUI.gameObject.SetActive(true);
+                m_GoldLeftUI.gameObject.SetActive(true);
+                Time.timeScale = 0.0f;
+                break;
+        }
+    }
+
+
+    private void PlayingBehaviour()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+            m_GameState = GameState.Pause;
+    }
+
+    private void PauseBehaviour()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+            m_GameState = GameState.Playing;
+
+    }
+
+
     public void PickGold()
     {
         FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.PickupCoin, transform.position, 1f);
         m_currentGoldLeft--;
         UpdateGoldLeft();
 
-        if(m_currentGoldLeft == 0)
-        {
-            deathPanel.SetActive(true);
-            Time.timeScale = 0f;
-        }
+
     }
 
     public void DragonADied()
@@ -95,6 +149,9 @@ public class DragonGameManager : MonoBehaviour
     {
         OnGoldTrigger?.Invoke(this, EventArgs.Empty);
         m_GoldLeftUI.text = "Gold Left: " + m_currentGoldLeft.ToString("0");
+
+        if (m_currentGoldLeft == 0 && m_GameState != GameState.GameOver)
+            m_GameState = GameState.GameOver;
     }
 
     private void UpdateDragonKilled()
@@ -104,16 +161,27 @@ public class DragonGameManager : MonoBehaviour
 
     public void StartGame()
     {
+        m_GameState = GameState.Playing;
+        m_currentGoldLeft = m_maxGold;
 
-        SceneManager.LoadScene("Dragons");
+
+        UpdateGoldLeft();
+        //SceneManager.LoadScene("Dragons");
 
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("Main_Menu");
-    }
+        m_GameState = GameState.Menu;
 
+        GameObject[] dragons = GameObject.FindGameObjectsWithTag("Dragon");
+
+        if(dragons != null && dragons.Length > 0)
+            foreach(var d  in dragons)
+                Destroy(d);
+
+        //SceneManager.LoadScene("Main_Menu");
+    }
 
     public void QuitGame()
     {

@@ -53,20 +53,21 @@ public class DragonAI : MonoBehaviour
             managerInstance.DragonADied();
 
             if(m_Dragon_SM_Data.state == SM_State.Collected)
-                Instantiate(m_GoldPrefab, m_GoldSpawnPoint.position, Quaternion.identity); 
+                Instantiate(m_GoldPrefab, m_GoldSpawnPoint.position, m_GoldSpawnPoint.localRotation); 
 
             Destroy(gameObject);
         }
 
 
 
-        if(m_Dragon_SM_Data.state == SM_State.Engage)
-        {
-            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.AirSweep, transform.position, 0.2f);
-        }else
-        {
-            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.AirSweep, transform.position, 0f);
-        }
+        //if(m_Dragon_SM_Data.state == SM_State.Engage)
+        //{
+        //    FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.AirSweep, transform.position, 0.2f);
+
+        //}else
+        //{
+        //    //FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.AirSweep, transform.position, 0f);
+        //}
     }
 
 
