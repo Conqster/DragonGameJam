@@ -54,7 +54,7 @@ public class DragonGameManager : MonoBehaviour
         UpdateGoldLeft();
         UpdateDragonKilled();
 
-        //mainMenuPanel.SetActive(false);
+  
         deathPanel.SetActive(false);
     }
 
@@ -99,11 +99,16 @@ public class DragonGameManager : MonoBehaviour
         m_DragonKilledUI.text = "Dragons Killed: " + m_dragonKilled.ToString("0");
     }
 
-    public void LoadStartScreen()
+    public void StartGame()
     {
 
-        mainMenuPanel.SetActive(true);
+        SceneManager.LoadScene("Dragons");
 
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
     }
 
 

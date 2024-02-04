@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1806,7 +1806,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1636330289}
         m_TargetAssemblyTypeName: DragonGameManager, Assembly-CSharp
-        m_MethodName: LoadStartScreen
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2685,29 +2685,17 @@ Transform:
   - {fileID: 1303185390}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1636330288
+--- !u!1 &1636330288 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 278530255673646185, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7676413111383776958}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1636330290}
-  - component: {fileID: 1636330289}
-  - component: {fileID: 1636330291}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1636330289
+--- !u!114 &1636330289 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3364856746517929417, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7676413111383776958}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636330288}
   m_Enabled: 1
@@ -2715,68 +2703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6b2e7781eccb341a685c468a322d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxGold: 10
-  m_currentGoldLeft: 0
-  m_dragonKilled: 0
-  m_GoldLeftUI: {fileID: 2042832414}
-  m_DragonKilledUI: {fileID: 1361358369}
-  mainMenuPanel: {fileID: 1922433472}
-  deathPanel: {fileID: 1589422333}
-  m_GameState: 0
---- !u!4 &1636330290
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636330288}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.07281153, y: 1.5258064, z: -0.47233006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1636330291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636330288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd7847393b2084929925b33d82cd3f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioObject: {fileID: 8166200783122818254, guid: 7f896b2af6f4d40ec82268d6a4f084fc,
-    type: 3}
-  dragonHit:
-  - {fileID: 8300000, guid: 00305786985344bc0a0920b3829b92d1, type: 3}
-  - {fileID: 8300000, guid: fd19e2a7062a6415e8e0650f8f84978f, type: 3}
-  - {fileID: 8300000, guid: e9c15b51302c844e58fcd6a1577366db, type: 3}
-  - {fileID: 8300000, guid: a02b930a4e73a44c7aaa4fa6b4bb7146, type: 3}
-  arrowShot:
-  - {fileID: 8300000, guid: 84f07769960e14f4cbfd40df27e4e89c, type: 3}
-  - {fileID: 8300000, guid: 7296569d457e649bab3fa0d727282790, type: 3}
-  bowPull:
-  - {fileID: 8300000, guid: e2d522cf3d1f24c1a93ce90ca049870c, type: 3}
-  - {fileID: 8300000, guid: 860f6d8ad61df4d32864c678ebcaa7b6, type: 3}
-  dragonDeath:
-  - {fileID: 8300000, guid: a625c60b6149b49d680788ca58dccb79, type: 3}
-  - {fileID: 8300000, guid: 5767bde8ad93949fcaa0d71e8d639804, type: 3}
-  airSweep:
-  - {fileID: 8300000, guid: db575c99f67dc41499893183953e23c1, type: 3}
-  - {fileID: 8300000, guid: ede2434c415fe4a6488eb96c08bf1cad, type: 3}
-  - {fileID: 8300000, guid: 397093e8389064f009e2f5d0c4ca4fd5, type: 3}
-  - {fileID: 8300000, guid: ca8f3f48dd4314eb781d20ea74235d7e, type: 3}
-  coinClips:
-  - {fileID: 8300000, guid: 71affb3f61bd74ab9b2d313870e9b351, type: 3}
-  - {fileID: 8300000, guid: 6cb1608ae11d04314a05a9cf263b7162, type: 3}
-  goldReturn:
-  - {fileID: 8300000, guid: f9003beef0e234203b435bc4a1640519, type: 3}
-  - {fileID: 8300000, guid: 10286b87d6b654587b0dc7ae25e327fd, type: 3}
 --- !u!137 &1638039967 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4971669672620952904, guid: 54cca3528bf7d4c4da4958fff6c96805,
@@ -3032,7 +2958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1922433473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3706,6 +3632,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042832412}
   m_CullTransparentMesh: 1
+--- !u!1001 &7676413111383776958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 278530255673646185, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07281153
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5258064
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.47233006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218721561518415176, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364856746517929417, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: deathPanel
+      value: 
+      objectReference: {fileID: 1589422333}
+    - target: {fileID: 3364856746517929417, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_GoldLeftUI
+      value: 
+      objectReference: {fileID: 2042832414}
+    - target: {fileID: 3364856746517929417, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: mainMenuPanel
+      value: 
+      objectReference: {fileID: 1922433472}
+    - target: {fileID: 3364856746517929417, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_DragonKilledUI
+      value: 
+      objectReference: {fileID: 1361358369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f17cdaaf5b3dc437aadf55aa803ef61c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3718,6 +3732,6 @@ SceneRoots:
   - {fileID: 1629246483}
   - {fileID: 506173081}
   - {fileID: 649916233}
-  - {fileID: 1636330290}
+  - {fileID: 7676413111383776958}
   - {fileID: 333735233}
   - {fileID: 908089880}
