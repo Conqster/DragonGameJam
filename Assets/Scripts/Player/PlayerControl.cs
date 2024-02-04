@@ -61,7 +61,7 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.BowPull, transform.position, 0.4f);
+            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.BowPull, transform.position, 0.7f);
         }
     }
 

@@ -57,6 +57,16 @@ public class DragonAI : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+
+
+        if(m_Dragon_SM_Data.state == SM_State.Engage)
+        {
+            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.AirSweep, transform.position, 0.2f);
+        }else
+        {
+            FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.AirSweep, transform.position, 0f);
+        }
     }
 
 

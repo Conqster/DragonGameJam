@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragonGameManager : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class DragonGameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI m_GoldLeftUI;
     [SerializeField] private TextMeshProUGUI m_DragonKilledUI;
+
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject deathPanel;
+
 
     public int CurrentGoldLeft {  get { return m_currentGoldLeft;} }
     public int MaxGold { get { return m_maxGold; } }
@@ -37,6 +42,9 @@ public class DragonGameManager : MonoBehaviour
         m_currentGoldLeft = m_maxGold;
         UpdateGoldLeft();
         UpdateDragonKilled();
+
+        //mainMenuPanel.SetActive(false);
+        deathPanel.SetActive(false);
     }
 
 
@@ -45,13 +53,21 @@ public class DragonGameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.PickupCoin, transform.position, 1f);
         m_currentGoldLeft--;
         UpdateGoldLeft();
+
+        if(m_currentGoldLeft == 0)
+        {
+            deathPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     public void DragonADied()
     {
         FindObjectOfType<AudioManager>().AudioTrigger(AudioManager.SoundFXCat.DragonDeath, transform.position, 1f);
         m_dragonKilled++;
-        UpdateDragonKilled();   
+        UpdateDragonKilled();
+
+      
     }
 
     public void GoldReturned()
@@ -69,7 +85,20 @@ public class DragonGameManager : MonoBehaviour
 
     private void UpdateDragonKilled()
     {
-        m_DragonKilledUI.text = "Dragon Killed: " + m_dragonKilled.ToString("0");
+        m_DragonKilledUI.text = "Dragons Killed: " + m_dragonKilled.ToString("0");
+    }
+
+    public void LoadStartScreen()
+    {
+
+        mainMenuPanel.SetActive(true);
+
+    }
+
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }
