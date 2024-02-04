@@ -30,6 +30,8 @@ public class DragonGameManager : MonoBehaviour
 
     [SerializeField] private GameState m_GameState;
 
+    public event EventHandler OnGoldTrigger;
+
 
     public int CurrentGoldLeft {  get { return m_currentGoldLeft;} }
     public int MaxGold { get { return m_maxGold; } }
@@ -91,6 +93,7 @@ public class DragonGameManager : MonoBehaviour
 
     private void UpdateGoldLeft()
     {
+        OnGoldTrigger?.Invoke(this, EventArgs.Empty);
         m_GoldLeftUI.text = "Gold Left: " + m_currentGoldLeft.ToString("0");
     }
 
