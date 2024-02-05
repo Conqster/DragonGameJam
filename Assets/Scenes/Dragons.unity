@@ -435,6 +435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 254631726}
+    - target: {fileID: 796109723904317577, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
       objectReference: {fileID: 0}
     - target: {fileID: 1060584236548348407, guid: f17cdaaf5b3dc437aadf55aa803ef61c,
         type: 3}
@@ -1508,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ea2dff9e0f2954eb585c3d01416367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragonPrefab: {fileID: 6539508313884585060, guid: 4031dc2ec40f3eb40b954890ccd99eff,
+  dragonPrefab: {fileID: 9107889860749540691, guid: 93ab6e30f6ae55b4ea1d93cca4f1fb11,
     type: 3}
   spawnPtA: {fileID: 294004023}
   spawnPtB: {fileID: 1303185390}
